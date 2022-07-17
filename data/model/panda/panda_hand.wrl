@@ -138,7 +138,7 @@ PROTO ExtraJoint [
 
 
 
-DEF main_link Humanoid {
+DEF Panda Humanoid {
   humanoidBody [
     DEF main_link Joint {
       jointType "fixed"
@@ -358,6 +358,43 @@ DEF main_link Humanoid {
                                     }
                                   ]
                                 }
+
+                                DEF BUSH_X Joint {
+                                  jointType "slide"
+                                  jointAxis 1 0 0
+                                  rotorInertia 0.001000000
+                                  torqueConst 0.027600
+                                  children[
+                                DEF BUSH_Y Joint {
+                                  jointType "slide"
+                                  jointAxis 0 1 0
+                                  rotorInertia 0.001000000
+                                  torqueConst 0.027600
+                                  children[
+                                DEF BUSH_Z Joint {
+                                  jointType "slide"
+                                  jointAxis 0 0 1
+                                  rotorInertia 0.001000000
+                                  torqueConst 0.027600
+                                  children[
+                                DEF BUSH_ROLL Joint {
+                                  jointType "rotate"
+                                  jointAxis 1 0 0
+                                  rotorInertia 0.014000000
+                                  torqueConst 0.027600
+                                  children[
+                                DEF BUSH_PITCH Joint {
+                                  jointType "rotate"
+                                  jointAxis 0 1 0
+                                  rotorInertia 0.014000000
+                                  torqueConst 0.027600
+                                  children[
+                                DEF BUSH_YAW Joint {
+                                  jointType "rotate"
+                                  jointAxis 0 0 1
+                                  rotorInertia 0.014000000
+                                  torqueConst 0.027600
+                                  children[
                                     
                                 DEF panda_joint7 Joint {
                                   jointType "rotate"
@@ -517,6 +554,20 @@ DEF main_link Humanoid {
                                     }
                                   ]
                                 }
+
+                              ]
+                              }
+                              ]
+                              }
+                              ]
+                              }
+                              ]
+                              }
+                              ]
+                              }
+                              ]
+                              }
+
                               ]
                             }
                           ]
