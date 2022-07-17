@@ -426,7 +426,7 @@ DEF main_link Humanoid {
                                       lvlimit -0.3
                                       rotorInertia 0.01
                                       gearRatio 100
-                                      climit [20.0]
+                                      climit [100.0]
                                       children [
                                         DEF panda_leftfinger Segment {
                                           mass 0.1
@@ -435,14 +435,30 @@ DEF main_link Humanoid {
                                           children [
                                             Transform {
                                               scale 1.0 1.0 1.0
-                                              translation 0.0 0.0 0.0
-                                              rotation 0 1 0 0
+                                              translation 0.0 0.01 0.0275
                                               children [
-                                                Inline {
-                                                  url "panda-panda_leftfinger-panda-panda_leftfinger_visual.wrl"
+                                                Shape {
+                                                   geometry Box {
+                                                      size 0.2 0.02 0.04
+                                                   }
+                                                   appearance Appearance {
+                                                      material Material {
+                                                         diffuseColor 0.8 0.2 0.2
+                                                      }
+                                                   }
                                                 }
                                               ]
                                             }
+                                            # Transform {
+                                            #   scale 1.0 1.0 1.0
+                                            #   translation 0.0 0.0 0.0
+                                            #   rotation 0 1 0 0
+                                            #   children [
+                                            #     Inline {
+                                            #       url "panda-panda_leftfinger-panda-panda_leftfinger_visual.wrl"
+                                            #     }
+                                            #   ]
+                                            # }
                                           ]
                                         }
                                             
@@ -461,7 +477,7 @@ DEF main_link Humanoid {
                                       lvlimit -0.3
                                       rotorInertia 0.01
                                       gearRatio 100
-                                      climit [20.0]
+                                      climit [100.0]
                                       children [
                                         DEF panda_rightfinger Segment {
                                           mass 0.1
@@ -470,14 +486,30 @@ DEF main_link Humanoid {
                                           children [
                                             Transform {
                                               scale 1.0 1.0 1.0
-                                              translation 0.0 0.0 0.0
-                                              rotation -0.0 -0.0 -1.0 3.14160344686
+                                              translation 0.0 -0.01 0.0275
                                               children [
-                                                Inline {
-                                                  url "panda-panda_rightfinger-panda-panda_rightfinger_visual.wrl"
+                                                Shape {
+                                                   geometry Box {
+                                                      size 0.2 0.02 0.04
+                                                   }
+                                                   appearance Appearance {
+                                                      material Material {
+                                                         diffuseColor 0.8 0.2 0.2
+                                                      }
+                                                   }
                                                 }
                                               ]
                                             }
+                                            # Transform {
+                                            #   scale 1.0 1.0 1.0
+                                            #   translation 0.0 0.0 0.0
+                                            #   rotation -0.0 -0.0 -1.0 3.14160344686
+                                            #   children [
+                                            #     Inline {
+                                            #       url "panda-panda_rightfinger-panda-panda_rightfinger_visual.wrl"
+                                            #     }
+                                            #   ]
+                                            # }
                                           ]
                                         }
                                             
