@@ -383,8 +383,8 @@ DEF Panda Humanoid {
                                   rotorInertia 0.014000000
                                   torqueConst 0.027600
                                   children[
-                                DEF BUSH_PITCH Joint {
-                                  jointType "rotate"
+                                DEF BUSH_PITCH Joint { # This is the Yaw axis in gripper local coordinates
+                                  jointType "fixed"
                                   jointAxis 0 1 0
                                   rotorInertia 0.014000000
                                   torqueConst 0.027600

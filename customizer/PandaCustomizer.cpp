@@ -58,7 +58,7 @@ struct PandaCustomizer
   int modelType;
 
   bool hasVirtualBushJoints;
-  JointValSet jointValSets[6];
+  JointValSet jointValSets[5];
   double springT;
   double dampingT;
   double springR;
@@ -76,16 +76,15 @@ static void getVirtualbushJoints(PandaCustomizer * customizer, BodyHandle body)
 {
   customizer->hasVirtualBushJoints = true;
 
-  int bushIndices[6];
+  int bushIndices[5];
 
   bushIndices[0] = bodyInterface->getLinkIndexFromName(body, "BUSH_X");
   bushIndices[1] = bodyInterface->getLinkIndexFromName(body, "BUSH_Y");
   bushIndices[2] = bodyInterface->getLinkIndexFromName(body, "BUSH_Z");
   bushIndices[3] = bodyInterface->getLinkIndexFromName(body, "BUSH_ROLL");
-  bushIndices[4] = bodyInterface->getLinkIndexFromName(body, "BUSH_PITCH");
-  bushIndices[5] = bodyInterface->getLinkIndexFromName(body, "BUSH_YAW");
+  bushIndices[4] = bodyInterface->getLinkIndexFromName(body, "BUSH_YAW");
 
-  for(int j = 0; j < 6; ++j)
+  for(int j = 0; j < 5; ++j)
   {
     int bushIndex = bushIndices[j];
     if(bushIndex < 0)
@@ -129,8 +128,8 @@ static BodyCustomizerHandle create(BodyHandle bodyHandle, const char * modelName
       case Panda:
         customizer->springT = 3.0e4;
         customizer->dampingT = 2.0e2;
-        customizer->springR = 124;
-        customizer->dampingR = 2.5;
+        customizer->springR = 124.0;
+        customizer->dampingR = 25.0;
 
         getVirtualbushJoints(customizer, bodyHandle);
 
@@ -166,7 +165,7 @@ static void setVirtualJointForces(BodyCustomizerHandle customizerHandle)
       *(trans.torqueForcePtr) = -customizer->springT * (*trans.valuePtr) - customizer->dampingT * (*trans.velocityPtr);
     }
 
-    for(int j = 3; j < 6; ++j)
+    for(int j = 3; j < 5; ++j)
     {
       JointValSet & rot = customizer->jointValSets[j];
       *(rot.torqueForcePtr) = -customizer->springR * (*rot.valuePtr) - customizer->dampingR * (*rot.velocityPtr);
